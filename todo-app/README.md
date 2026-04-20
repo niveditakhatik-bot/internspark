@@ -16,7 +16,7 @@ This is a simple To-Do List web application that helps users manage their daily 
 
 ## 📸 Screenshot
 
-![App Screenshot](Screenshot 2026-04-20 223218.png)
+![App Screenshot](Screenshot.png)
 
 ## 🔗 Live Demo
 https://niveditakhatik-bot.github.io/internspark/todo-app/
