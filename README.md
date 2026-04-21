@@ -23,6 +23,16 @@ https://niveditakhatik-bot.github.io/internspark/todo-app/
 
 ---
 
+### 3. daily quotes app
+A web app that fetches random inspirational quotes using DummyJSON API with copy functionality.
+✨ Features:
+- new quote in one click
+- provide authore name
+- copy feature
+
+🔗 Live Link:
+https://niveditakhatik-bot.github.io/internspark/quotes-app/
+  
 ## 🛠 Technologies Used
 - HTML
 - CSS
