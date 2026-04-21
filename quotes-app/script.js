@@ -20,8 +20,8 @@ const copyBtn = document.getElementById("copyBtn");        // copy button
 // =============================================
 async function fetchQuote() {
 
-  showLoader(true);          // loading dots dikhao
-  errorMsg.textContent = ""; // pehle wala error saaf karo
+  showLoader(true);          // loading dots dikhana
+  errorMsg.textContent = ""; // pehle wala error saaf karna
   
   // quote aur author ko invisible karo (animation ke liye)
   quoteText.style.opacity = "0";
@@ -37,15 +37,15 @@ async function fetchQuote() {
       throw new Error("Failed to fetch quote. Try again!");
     }
 
-    // API ka jawab JSON format mein convert karo
+    // API ka jawab JSON format mein convert 
     // data = { id: 1, quote: "...", author: "..." }
     const data = await response.json();
 
-    // API se aaya quote aur author HTML mein daalo
+    // API se aaya quote aur author HTML me dalna 
     quoteText.textContent = data.quote;
     quoteAuthor.textContent = "— " + data.author;
 
-    // Fade-in animation dobara chalao
+    // Fade-in animation dobara chalna
     // (pehle "none" karte hain taaki reset ho)
     quoteText.style.animation = "none";
     quoteAuthor.style.animation = "none";
@@ -54,7 +54,7 @@ async function fetchQuote() {
     quoteAuthor.style.animation = "fadeUp 0.5s ease 0.1s forwards";
 
   } catch (error) {
-    // Kuch galat hua toh - error message dikhao
+    // Kuch galat hua toh - error message show 
     errorMsg.textContent = "⚠ " + error.message;
     quoteText.textContent = "Something went wrong. Please try again.";
     quoteAuthor.textContent = "— Unknown";
@@ -62,7 +62,7 @@ async function fetchQuote() {
     quoteAuthor.style.opacity = "1";
 
   } finally {
-    // try ya catch - dono ke baad loading dots band karo
+    // try ya catch - dono ke baad loading dots band 
     showLoader(false);
   }
 }
@@ -71,16 +71,16 @@ async function fetchQuote() {
 // COPY FUNCTION - quote clipboard mein copy karna
 // =============================================
 function copyQuote() {
-  // quote aur author ek saath copy karo
+  // quote aur author ek saath copy 
   const text = `"${quoteText.textContent}" ${quoteAuthor.textContent}`;
   
   // browser ka built-in clipboard API use karo
   navigator.clipboard.writeText(text).then(() => {
-    // Copy successful - button ka text change karo
+    // Copy successful - button ka text change 
     copyBtn.innerHTML = "<span>Copied! ✓</span>";
     copyBtn.classList.add("copied"); // green color CSS class
 
-    // 2 second baad button wapas normal kar do
+    // 2 second baad button wapas normal 
     setTimeout(() => {
       copyBtn.innerHTML = "<span>Copy</span>";
       copyBtn.classList.remove("copied");
@@ -93,12 +93,12 @@ function copyQuote() {
 // =============================================
 function showLoader(show) {
   if (show) {
-    loader.classList.add("active");    // dots dikhao
+    loader.classList.add("active");    // show dots
   } else {
-    loader.classList.remove("active"); // dots chhupaao
+    loader.classList.remove("active"); // hide dots
   }
 }
 
-// Page load hote hi automatically ek quote fetch karo
+// Page load hote hi automatically ek quote fetch 
 // (button click ka wait nahi karna)
 window.onload = fetchQuote;
